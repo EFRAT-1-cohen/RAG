@@ -4,7 +4,7 @@
 
 📊 תרשים זרימה של ה-Workflow
 השתמשתי בארכיטקטורת Event-Driven שבה ה-LLM משמש כנתב (Router) שמחליט לאיזה נתיב חיפוש ללכת.
-mermaid```
+
 graph TD
     Start((שאילתת משתמש)) --> Router{<b>Router Step</b><br/>ניתוח השאלה}
     
@@ -21,7 +21,7 @@ graph TD
     style Stop fill:#fdd,stroke:#d22
     style Vector fill:#e1f5fe,stroke:#01579b
     style Struct fill:#fff3e0,stroke:#e65100
-```
+
     🛠️ טכנולוגיות בשימוש
 LlamaIndex Workflows: לניהול זרימת האירועים והצעדים (Steps).
 
