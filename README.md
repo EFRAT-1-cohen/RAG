@@ -4,7 +4,7 @@
 
 📊 תרשים זרימה של ה-Workflow
 השתמשתי בארכיטקטורת Event-Driven שבה ה-LLM משמש כנתב (Router) שמחליט לאיזה נתיב חיפוש ללכת.
-```mermaid
+
 graph TD
     Start((שאילתת משתמש)) --> Router{<b>Router Step</b><br/>ניתוח השאלה}
     
@@ -15,7 +15,7 @@ graph TD
     Struct --> Gen
     
     Gen --> Stop((סיום: תשובה למשתמש))
-```
+
     style Router fill:#f9f,stroke:#333,stroke-width:2px
     style Start fill:#dfd,stroke:#2d2
     style Stop fill:#fdd,stroke:#d22
