@@ -1,0 +1,23 @@
+# משתני סביבה וסודות (הכי חשוב!)
+.env
+.venv
+env/
+venv/
+ENV/
+
+# קבצי הגדרות של סביבת העבודה
+.vscode/
+.idea/
+.gradio/
+
+# קבצי פייתון זמניים
+__pycache__/
+*.py[cod]
+*$py.class
+
+# קבצי Jupyter Notebook
+.ipynb_checkpoints
+
+# קבצי דאטה ואינדקסים (אם הם גדולים או מכילים מידע אישי)
+*.log
+data/

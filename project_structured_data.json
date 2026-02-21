@@ -1,0 +1,79 @@
+{
+    "decisions": [
+        {
+            "id": "dec-001",
+            "title": "Invoice Data Model and TimeLog Linking",
+            "summary": "Add an Invoice entity with status (Draft, Sent, Paid), linked to TimeLogs via `invoiceId` on TimeLog and `timeLogIds` on Invoice. When an invoice is generated, update TimeLogs to set `invoiceId` (marking them as billed).",
+            "tags": [
+                "db",
+                "architecture",
+                "frontend"
+            ]
+        },
+        {
+            "id": "dec-002",
+            "title": "Pending Invoices Definition for Dashboard Widget",
+            "summary": "\"Pending Invoices\" = invoices with status Draft or Sent (i.e., not yet Paid). Widget shows count and total amount of pending invoices.",
+            "tags": [
+                "db",
+                "architecture",
+                "frontend"
+            ]
+        }
+    ],
+    "rules": [
+        {
+            "id": "rule-001",
+            "rule": "Invoice status must be one of exactly three values: 'Draft', 'Sent', 'Paid'.",
+            "scope": "ui"
+        },
+        {
+            "id": "rule-002",
+            "rule": "When creating an invoice, both the Invoice creation and TimeLog updates must happen in a single atomic reducer action (GENERATE_INVOICE).",
+            "scope": "backend"
+        },
+        {
+            "id": "rule-003",
+            "rule": "Once an invoice is created, `totalAmount` must not be recalculated. It represents the amount at the time of invoice creation.",
+            "scope": "backend"
+        },
+        {
+            "id": "rule-004",
+            "rule": "When finding unbilled time logs, filter by `!timeLog.invoiceId` (undefined or null).",
+            "scope": "backend"
+        },
+        {
+            "id": "rule-005",
+            "rule": "Invoice IDs should use UUID format but can optionally have an 'inv-' prefix for readability.",
+            "scope": "backend"
+        },
+        {
+            "id": "rule-006",
+            "rule": "\"Pending invoices\" = invoices where status is 'Draft' OR 'Sent'.",
+            "scope": "ui"
+        },
+        {
+            "id": "rule-007",
+            "rule": "All invoice-related components must be placed in `src/components/Invoices/`.",
+            "scope": "frontend"
+        },
+        {
+            "id": "rule-008",
+            "rule": "Invoice components must follow naming convention: `InvoiceList.tsx`, `InvoiceCard.tsx`, `CreateInvoiceModal.tsx`.",
+            "scope": "frontend"
+        },
+        {
+            "id": "rule-009",
+            "rule": "Invoice status should be displayed with appropriate visual indicators: Draft: Gray/neutral styling, Sent: Blue/warning styling, Paid: Green/success styling.",
+            "scope": "frontend"
+        }
+    ],
+    "warnings": [
+        {
+            "id": "warn-001",
+            "area": "Invoice Generation",
+            "message": "Client deletion must cascade to invoices; project deletion leaves invoice totalAmount unchanged (orphaned timeLogIds filtered on display).",
+            "severity": "high"
+        }
+    ]
+}
