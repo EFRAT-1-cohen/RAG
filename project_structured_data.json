@@ -59,12 +59,12 @@
         },
         {
             "id": "rule-008",
-            "rule": "Invoice components must follow naming convention: `InvoiceList.tsx`, `InvoiceCard.tsx`, `CreateInvoiceModal.tsx`.",
+            "rule": "Invoice components must follow naming convention: - `InvoiceList.tsx` - List of all invoices - `InvoiceCard.tsx` - Single invoice display - `CreateInvoiceModal.tsx` - Modal for creating new invoice",
             "scope": "frontend"
         },
         {
             "id": "rule-009",
-            "rule": "Invoice status should be displayed with appropriate visual indicators: Draft: Gray/neutral styling, Sent: Blue/warning styling, Paid: Green/success styling.",
+            "rule": "Invoice status should be displayed with appropriate visual indicators: - Draft: Gray/neutral styling - Sent: Blue/warning styling - Paid: Green/success styling",
             "scope": "frontend"
         }
     ],
@@ -72,7 +72,7 @@
         {
             "id": "warn-001",
             "area": "Invoice Generation",
-            "message": "Client deletion must cascade to invoices; project deletion leaves invoice totalAmount unchanged (orphaned timeLogIds filtered on display).",
+            "message": "Client deletion must cascade to invoices; project deletion leaves invoice totalAmount unchanged (orphaned timeLogIds filtered on display.",
             "severity": "high"
         }
     ]
