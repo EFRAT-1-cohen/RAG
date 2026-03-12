@@ -13,7 +13,7 @@ graph TD
     Router -- "שאלה כללית / סמנטית" --> Vector[<b>Vector Retrieval</b><br/>חיפוש ב-Pinecone]
     Router -- "שאלה על חוקים / החלטות" --> Struct[<b>Structured Retrieval</b><br/>שליפה מ-JSON מובנה]
 
-    Vector --> Gen[<b>Response Generation</b><br/>ניסוח תשובה ע"י LLM]
+    Vector --> Gen[<b>Response Generation</b><br/>ניסוח תשובה על ידי LLM]
     Struct --> Gen
 
     Gen --> Stop((סיום: תשובה למשתמש))
